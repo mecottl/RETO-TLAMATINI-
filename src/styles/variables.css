@@ -1,0 +1,14 @@
+ /* Colores */
+:root{
+    --bg-primary: #F9C677;
+
+    --button-primary: #cc5d37;
+    --cards-primary: #DFA24F;
+
+    --txt-primary: #fff;  
+    --txt-secundary: #85240C;
+
+    --font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --fontSize-primary: 24px;
+    --fontSize-secundary: 18px;
+}
