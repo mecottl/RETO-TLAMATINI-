@@ -1,16 +1,52 @@
+.profile-page {
+  padding: 2rem 1.25rem 4rem;
+}
+
+.profile-shell {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .profile-container {
-  padding: 20px;
+  width: 100%;
 }
 
 .profile-grid {
-  margin: 20px 60px;
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
+  grid-template-columns: minmax(0, 1.8fr) minmax(280px, 0.95fr);
+  gap: 1.5rem;
+  align-items: start;
 }
 
-.left, .right {
+.profile-main,
+.profile-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .profile-page {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .profile-page {
+    padding-inline: 0.75rem;
+  }
+
+  .profile-shell,
+  .profile-main,
+  .profile-sidebar {
+    gap: 1rem;
+  }
 }

@@ -1,54 +1,86 @@
 ---
 const user = {
-  description: "Soy ingeniera en Software con preferencias hacia el desarrollo frontend.",
+  description: "Soy ingeniera en software con enfoque en desarrollo frontend y experiencias web claras.",
   birthdate: "12 de junio de 2004",
-  languages: "Español, Inglés, Francés",
-  education: "Instituto Tecnológico de Mérida"
+  languages: "Espanol, Ingles, Frances",
+  education: "Instituto Tecnologico de Merida"
 };
 ---
 
 <div class="card">
-  <h2>Sobre mí</h2>
+  <h2>Sobre mi</h2>
 
   <p class="desc">{user.description}</p>
 
   <div class="item">
-    <span>🎂</span>
+    <span>Fecha</span>
     <p>{user.birthdate}</p>
   </div>
 
   <div class="item">
-    <span>🌐</span>
+    <span>Idiomas</span>
     <p>{user.languages}</p>
   </div>
 
   <div class="item">
-    <span>🏫</span>
+    <span>Educacion</span>
     <p>{user.education}</p>
   </div>
 </div>
 
 <style>
 .card {
-  background: #c65a2e;
-  padding: 20px;
-  border-radius: 20px;
-  color: white;
+  background: var(--cards-primary);
+  padding: 1.25rem;
+  border-radius: 24px;
+  color: var(--txt-primary);
+  box-sizing: border-box;
+  border: 1px solid var(--border-primary);
+  box-shadow: var(--shadow-soft);
 }
 
 h2 {
-  margin-bottom: 10px;
+  margin: 0 0 0.9rem;
+  line-height: 1.2;
 }
 
 .desc {
-  margin-bottom: 15px;
-  line-height: 1.4;
+  margin: 0 0 1rem;
+  line-height: 1.65;
 }
 
 .item {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.item span {
+  min-width: 82px;
+  flex-shrink: 0;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.item p {
+  margin: 0;
+  line-height: 1.45;
+}
+
+@media (max-width: 520px) {
+  .card {
+    padding: 1rem;
+    border-radius: 20px;
+  }
+
+  .item {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .item span {
+    min-width: 0;
+  }
 }
 </style>

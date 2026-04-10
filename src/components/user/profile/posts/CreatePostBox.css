@@ -1,23 +1,52 @@
-.box {
+.create-post-box {
   background: var(--cards-primary);
-  padding: 16px;
-  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  border-radius: 20px;
   display: flex;
-  flex: 1;
+  align-items: center;
+  gap: 0.9rem;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--border-primary);
+  box-shadow: var(--shadow-soft);
 }
 
-.box img {
-  width: 50px;
-  height: 50px;
+.create-post-avatar {
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
+  flex-shrink: 0;
 }
 
-input {
- margin-left: 20px;
+.create-post-input {
   width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
+  min-width: 0;
+  padding: 0.9rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(128, 63, 196, 0.35);
+  background: var(--cards-secondary);
+  font: inherit;
+  color: var(--txt-primary);
+  box-sizing: border-box;
+}
+
+.create-post-input::placeholder {
+  color: var(--txt-muted);
+}
+
+.create-post-input:focus {
+  outline: 2px solid rgba(128, 63, 196, 0.45);
+}
+
+@media (max-width: 520px) {
+  .create-post-box {
+    padding: 0.9rem;
+  }
+
+  .create-post-avatar {
+    width: 44px;
+    height: 44px;
+  }
 }

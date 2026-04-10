@@ -1,40 +1,43 @@
 ---
 import "./UserHeader.css";
+
 const user = {
   name: "Aurora Madera",
   role: "Desarrolladora Frontend",
-  location: "Mérida, Yucatán.",
-  posts: "23 Posts.",
+  location: "Merida, Yucatan",
+  posts: "23 posts publicados",
   website: "https://www.auroramadera.com",
 };
 ---
+
 <div class="header">
-  <div class="photo">
-    <img src="/assets/userImage.webp" />
+  <div class="profile-photo">
+    <img src="/assets/userImage.webp" alt={user.name} />
   </div>
 
-  <div class="content">
-    <div class="top">
-      <div>
+  <div class="header-content">
+    <div class="header-top">
+      <div class="identity">
         <h1>{user.name}</h1>
         <h2>{user.role}</h2>
       </div>
 
-      <button class="edit-btn">Editar Perfil</button>
+      <button class="edit-btn">Editar perfil</button>
     </div>
 
-    <div class="bottom">
+    <div class="header-bottom">
       <div class="user-meta">
-        <p>📍 {user.location} 📋 {user.posts}</p>
-        <a href="#">🌐 {user.website}</a>
+        <p>{user.location}</p>
+        <p>{user.posts}</p>
+        <a href="#">{user.website}</a>
       </div>
 
       <div class="gallery">
-        <p>Galería de proyectos</p>
+        <p>Galeria de proyectos</p>
         <div class="images">
-          <img src="/assets/userImage.webp" />
-          <img src="/assets/userImage.webp" />
-          <img src="/assets/userImage.webp" />
+          <img src="/assets/userImage.webp" alt="Proyecto destacado 1" />
+          <img src="/assets/userImage.webp" alt="Proyecto destacado 2" />
+          <img src="/assets/userImage.webp" alt="Proyecto destacado 3" />
         </div>
       </div>
     </div>

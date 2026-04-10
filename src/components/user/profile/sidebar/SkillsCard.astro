@@ -12,37 +12,59 @@ const skills = [
   <h2>Habilidades</h2>
 
   <div class="icons">
-    {skills.map(icon => (
-      <img src={icon} />
+    {skills.map((icon) => (
+      <img src={icon} alt="Icono de habilidad" />
     ))}
   </div>
 
   <p class="desc">
-    Mis principales habilidades se basan en el uso de frameworks de frontend, despliegue de aplicaciones y control de versiones.
+    Mis principales habilidades se centran en frameworks de frontend, despliegue de aplicaciones y control de versiones.
   </p>
 </div>
 
 <style>
 .card {
-  background: #c65a2e;
-  padding: 20px;
-  border-radius: 20px;
-  color: white;
+  background: var(--cards-primary);
+  padding: 1.25rem;
+  border-radius: 24px;
+  color: var(--txt-primary);
+  box-sizing: border-box;
+  border: 1px solid var(--border-primary);
+  box-shadow: var(--shadow-soft);
+}
+
+h2 {
+  margin: 0;
 }
 
 .icons {
   display: flex;
-  justify-content: space-between;
-  margin: 15px 0;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin: 1rem 0;
 }
 
 .icons img {
   width: 40px;
   height: 40px;
+  display: block;
+  padding: 0.45rem;
+  background: var(--cards-secondary);
+  border-radius: 14px;
+  border: 1px solid rgba(128, 63, 196, 0.22);
 }
 
 .desc {
-  font-size: 14px;
-  line-height: 1.4;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 520px) {
+  .card {
+    padding: 1rem;
+    border-radius: 20px;
+  }
 }
 </style>

@@ -11,20 +11,24 @@ import SkillsCard from "@components/user/profile/sidebar/SkillsCard.astro";
 ---
 
 <UserLayout title="Perfil">
-  <Header/>
-  <div class="profile-container">
-    <UserHeader />
-  </div>
+  <Header />
+  <main class="profile-page">
+    <div class="profile-shell">
+      <div class="profile-container">
+        <UserHeader />
+      </div>
 
-  <div class="profile-grid">
-    <div class="left">
-      <CreatePostBox />
-      <PostList />
-    </div>
+      <div class="profile-grid">
+        <div class="profile-main">
+          <CreatePostBox />
+          <PostList />
+        </div>
 
-    <div class="right">
-      <AboutCard />
-      <SkillsCard />
+        <aside class="profile-sidebar">
+          <AboutCard />
+          <SkillsCard />
+        </aside>
+      </div>
     </div>
-  </div>
+  </main>
 </UserLayout>

@@ -1,17 +1,23 @@
- /* Colores */
-:root{
-    --bg-primary: #F9C677;
+/* Colores */
+:root {
+    --bg-primary: #121018;
+    --bg-secondary: #1a1624;
+    --cards-primary: #1f1a2b;
+    --cards-secondary: #2a2238;
 
-    --button-primary: #cc5d37;
-    --cards-primary: #DFA24F;
+    --button-primary: #803FC4;
+    --accent-primary: #803FC4;
+    --accent-secondary: #333333;
+    --border-primary: #333333;
 
-    --txt-primary: #fff;  
-    --txt-secundary: #85240C;
+    --txt-primary: #f5f1ff;
+    --txt-secundary: #bca8de;
+    --txt-muted: #9387ab;
 
-    --font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
     --fontSize-primary: 38px;
     --fontSize-secundary: 18px;
     --fontSize-details: 14px;
 
-    --prueba: 1px red solid;
+    --shadow-soft: 0 20px 45px rgba(0, 0, 0, 0.28);
 }

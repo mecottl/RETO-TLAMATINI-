@@ -1,33 +1,39 @@
 ---
-import "./PostCard.css"
+import "./PostCard.css";
 
 const { post } = Astro.props;
 ---
 
-<div class="post">
-  <div class="left">
-    <img src={post.avatar} class="avatar" />
+<article class="post-card">
+  <div class="post-card__author">
+    <img src={post.avatar} class="post-card__avatar" alt={post.user} />
 
-    <div class="meta">
-      <div class="likes">❤️<br>{post.likes}</div>
-      <div class="date">📅<br>{post.date}</div>
+    <div class="post-card__meta">
+      <div class="post-card__stat">
+        <span class="post-card__label">Likes</span>
+        <strong>{post.likes}</strong>
+      </div>
+      <div class="post-card__stat">
+        <span class="post-card__label">Fecha</span>
+        <strong>{post.date}</strong>
+      </div>
     </div>
   </div>
 
-  <div class="center">
+  <div class="post-card__content">
     <h2>{post.user}</h2>
     <p>{post.text}</p>
   </div>
 
-  <div class="right">
-    <div class="preview">
-      <img src={post.image} />
+  <div class="post-card__media">
+    <div class="post-card__preview">
+      <img src={post.image} alt="Vista previa de la publicacion" />
 
       {post.link && (
-        <a href={post.link} target="_blank" class="link">
+        <a href={post.link} target="_blank" class="post-card__link">
           {post.link}
         </a>
       )}
     </div>
   </div>
-</div>
+</article>
