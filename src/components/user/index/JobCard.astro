@@ -2,6 +2,7 @@
 import IconSave from "@/components/UI/icons/IconSave.astro";
 
 interface Props {
+  id: string;
   Logo?: any;
   tag: string;
   position: string;
@@ -10,7 +11,8 @@ interface Props {
   isSaved?: boolean;
 }
 
-const { Logo, tag, position, company, time, isSaved = false } = Astro.props;
+const { id, Logo, tag, position, company, time, isSaved = false } = Astro.props;
+const detailHref = `/user/oferta/${id}`;
 ---
 
 <div class="card">
@@ -31,7 +33,7 @@ const { Logo, tag, position, company, time, isSaved = false } = Astro.props;
       <IconSave size={20} /> 
       <span class="save-text">{isSaved ? "Guardado" : "Guardar"}</span>
     </button>
-    <button class="btn-primary">Ver Información</button>
+    <a href={detailHref} class="btn-primary job-detail-link">Ver Información</a>
   </div>
 </div>
 

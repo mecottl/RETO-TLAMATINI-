@@ -1,0 +1,104 @@
+---
+import "./job-detail.css";
+import UserLayout from "@/layouts/UserLayout.astro";
+import Header from "@/components/UI/header/Header.astro";
+import { getAllJobs, getJobById, resolveLogo } from "@/data/jobs";
+
+export function getStaticPaths() {
+  return getAllJobs().map((job) => ({
+    params: { id: job.id },
+  }));
+}
+
+const { id } = Astro.params;
+const job = id ? getJobById(id) : undefined;
+
+if (!job) {
+  return Astro.redirect("/user/index");
+}
+
+const Logo = resolveLogo(job.logoKey);
+const pageTitle = `${job.position} — ${job.company.split("|")[0]?.trim() ?? job.company}`;
+---
+
+<UserLayout title={pageTitle}>
+  <Header />
+  <main class="job-detail-page">
+    <div class="job-detail-shell">
+      <a href="/user/index" class="job-detail-back">← Volver a ofertas</a>
+
+      <article class="job-detail-card">
+        <header class="job-detail-header">
+          {Logo && (
+            <div class="job-detail-logo">
+              <Logo />
+            </div>
+          )}
+          <div class="job-detail-heading">
+            <p class="job-detail-tag">{job.tag}</p>
+            <h1>{job.position}</h1>
+            <p class="job-detail-company">{job.company}</p>
+            {job.time && <p class="job-detail-time">{job.time}</p>}
+          </div>
+        </header>
+
+        <section class="job-detail-meta">
+          <div class="meta-chip">
+            <span class="meta-label">Modalidad / ubicación</span>
+            <span class="meta-value">{job.locationDetail}</span>
+          </div>
+          <div class="meta-chip">
+            <span class="meta-label">Tipo de empleo</span>
+            <span class="meta-value">{job.employmentType}</span>
+          </div>
+          <div class="meta-chip">
+            <span class="meta-label">Nivel</span>
+            <span class="meta-value">{job.experienceLevel}</span>
+          </div>
+        </section>
+
+        <section class="job-detail-section">
+          <h2>Resumen</h2>
+          <p>{job.summary}</p>
+        </section>
+
+        <section class="job-detail-section">
+          <h2>Descripción</h2>
+          <p>{job.description}</p>
+        </section>
+
+        <section class="job-detail-section">
+          <h2>Responsabilidades</h2>
+          <ul>
+            {job.responsibilities.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="job-detail-section">
+          <h2>Requisitos</h2>
+          <ul>
+            {job.requirements.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="job-detail-section">
+          <h2>Beneficios</h2>
+          <ul>
+            {job.benefits.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <div class="job-detail-actions">
+          <a href="/user/index" class="btn-outline">Volver</a>
+          <button type="button" class="btn-primary">Postularme</button>
+        </div>
+      </article>
+    </div>
+  </main>
+</UserLayout>

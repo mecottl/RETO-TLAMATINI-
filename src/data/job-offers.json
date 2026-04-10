@@ -1,0 +1,91 @@
+{
+  "jobs": [
+    {
+      "id": "google-diseno-ui-ux-cdmx",
+      "logoKey": "google",
+      "tag": "PRESENCIAL • $100K - $120K ANUAL",
+      "position": "Diseñadora UI/UX",
+      "company": "Google | Ciudad de México",
+      "time": "Hace 2 horas",
+      "isSaved": false,
+      "summary": "Buscamos una diseñadora UI/UX para productos internos de búsqueda y asistentes, con enfoque en sistemas de diseño y accesibilidad.",
+      "description": "Formarás parte del equipo de experiencia de producto en la oficina de Ciudad de México. Trabajarás con investigación, prototipado y handoff a ingeniería, priorizando claridad visual y consistencia en escala global.",
+      "responsibilities": [
+        "Definir flujos y wireframes de alta fidelidad en Figma.",
+        "Mantener y extender el sistema de diseño junto a otros equipos.",
+        "Colaborar con UX research en pruebas de usabilidad e iteraciones."
+      ],
+      "requirements": [
+        "3+ años de experiencia en diseño de producto digital.",
+        "Portafolio con casos de estudio medibles (métricas o aprendizajes).",
+        "Inglés intermedio-avanzado para reuniones con equipos globales."
+      ],
+      "benefits": [
+        "Seguro de gastos médicos mayores",
+        "Modelo híbrido acordado con el equipo",
+        "Presupuesto anual de capacitación"
+      ],
+      "employmentType": "Tiempo completo",
+      "experienceLevel": "Semi senior",
+      "locationDetail": "Ciudad de México (híbrido)"
+    },
+    {
+      "id": "steam-diseno-ui-ux-remoto",
+      "logoKey": "steam",
+      "tag": "REMOTO",
+      "position": "Diseñadora UI/UX",
+      "company": "Steam | Estado de México",
+      "time": "Hace 1 hora",
+      "isSaved": true,
+      "summary": "Diseño de interfaces para la plataforma y herramientas de comunidad, con mentalidad gamer y atención al detalle visual.",
+      "description": "Participarás en la evolución de la experiencia de escritorio y web, alineada a guías existentes pero con espacio para proponer mejoras de usabilidad y consistencia visual.",
+      "responsibilities": [
+        "Prototipar y documentar componentes reutilizables.",
+        "Ajustar layouts y estados según feedback de jugadores y soporte.",
+        "Trabajar en estrecha colaboración con desarrollo front-end."
+      ],
+      "requirements": [
+        "Experiencia previa en productos de alto tráfico o entretenimiento digital.",
+        "Dominio de Figma y diseño responsive.",
+        "Comunicación asincrónica efectiva en equipos remotos."
+      ],
+      "benefits": [
+        "100% remoto para residentes en México",
+        "Horario flexible",
+        "Acceso a biblioteca de juegos del equipo"
+      ],
+      "employmentType": "Tiempo completo",
+      "experienceLevel": "Mid",
+      "locationDetail": "Remoto (México)"
+    },
+    {
+      "id": "facebook-analista-datos-cdmx",
+      "logoKey": "facebook",
+      "tag": "REMOTO • $200K ANUAL",
+      "position": "Analista de Datos",
+      "company": "Facebook | Ciudad de México",
+      "time": "Hace 3 horas",
+      "isSaved": false,
+      "summary": "Análisis de comportamiento y experimentación para productos de mensajería; traducir datos en decisiones de producto claras.",
+      "description": "Apoyarás a equipos de producto con consultas SQL, dashboards y diseño de experimentos A/B. Se valora la capacidad de narrar hallazgos a perfiles no técnicos.",
+      "responsibilities": [
+        "Construir y mantener reportes en herramientas de BI.",
+        "Diseñar y evaluar experimentos con métricas de retención y engagement.",
+        "Documentar definiciones de métricas y fuentes de verdad."
+      ],
+      "requirements": [
+        "SQL avanzado y experiencia con Python o R.",
+        "2+ años en roles de analytics o data science aplicada a producto.",
+        "Experiencia con A/B testing y estadística básica."
+      ],
+      "benefits": [
+        "Seguro de salud premium",
+        "Bonos por desempeño",
+        "Trabajo remoto con opción de hub en CDMX"
+      ],
+      "employmentType": "Tiempo completo",
+      "experienceLevel": "Senior",
+      "locationDetail": "Ciudad de México / remoto híbrido"
+    }
+  ]
+}
