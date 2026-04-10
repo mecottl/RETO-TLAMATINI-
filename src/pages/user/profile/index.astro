@@ -1,6 +1,7 @@
 ---
 import "./profile.css";
 
+import Header from "@/components/UI/header/Header.astro";
 import UserLayout from "@layouts/UserLayout.astro";
 import UserHeader from "@components/user/profile/header/UserHeader.astro";
 import CreatePostBox from "@components/user/profile/posts/CreatePostBox.astro";
@@ -10,6 +11,7 @@ import SkillsCard from "@components/user/profile/sidebar/SkillsCard.astro";
 ---
 
 <UserLayout title="Perfil">
+  <Header/>
   <div class="profile-container">
     <UserHeader />
   </div>
