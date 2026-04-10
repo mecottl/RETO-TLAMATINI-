@@ -1,0 +1,16 @@
+profile-container {
+  padding: 20px;
+}
+
+.profile-grid {
+  margin: 20px 60px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.left, .right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

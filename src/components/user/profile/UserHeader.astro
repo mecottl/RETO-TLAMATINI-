@@ -1,0 +1,42 @@
+---
+import "./UserHeader.css";
+const user = {
+  name: "Aurora Madera",
+  role: "Desarrolladora Frontend",
+  location: "Mérida, Yucatán.",
+  posts: "23 Posts.",
+  website: "https://www.auroramadera.com",
+};
+---
+<div class="header">
+  <div class="photo">
+    <img src="/assets/userImage.webp" />
+  </div>
+
+  <div class="content">
+    <div class="top">
+      <div>
+        <h1>{user.name}</h1>
+        <h2>{user.role}</h2>
+      </div>
+
+      <button class="edit-btn">Editar Perfil</button>
+    </div>
+
+    <div class="bottom">
+      <div class="user-meta">
+        <p>📍 {user.location} 📋 {user.posts}</p>
+        <a href="#">🌐 {user.website}</a>
+      </div>
+
+      <div class="gallery">
+        <p>Galería de proyectos</p>
+        <div class="images">
+          <img src="/assets/userImage.webp" />
+          <img src="/assets/userImage.webp" />
+          <img src="/assets/userImage.webp" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

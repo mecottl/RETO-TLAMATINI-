@@ -9,6 +9,9 @@
     --txt-secundary: #85240C;
 
     --font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-    --fontSize-primary: 24px;
+    --fontSize-primary: 38px;
     --fontSize-secundary: 18px;
+    --fontSize-details: 14px;
+
+    --prueba: 1px red solid;
 }

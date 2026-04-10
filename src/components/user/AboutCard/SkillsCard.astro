@@ -1,0 +1,48 @@
+---
+const skills = [
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg"
+];
+---
+
+<div class="card">
+  <h2>Habilidades</h2>
+
+  <div class="icons">
+    {skills.map(icon => (
+      <img src={icon} />
+    ))}
+  </div>
+
+  <p class="desc">
+    Mis principales habilidades se basan en el uso de frameworks de frontend, despliegue de aplicaciones y control de versiones.
+  </p>
+</div>
+
+<style>
+.card {
+  background: #c65a2e;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.icons img {
+  width: 40px;
+  height: 40px;
+}
+
+.desc {
+  font-size: 14px;
+  line-height: 1.4;
+}
+</style>

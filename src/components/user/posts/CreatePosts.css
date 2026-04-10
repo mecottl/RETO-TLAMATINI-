@@ -1,0 +1,23 @@
+.box {
+  background: var(--cards-primary);
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  flex: 1;
+}
+
+.box img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+input {
+ margin-left: 20px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}

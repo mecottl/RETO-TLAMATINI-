@@ -1,0 +1,54 @@
+---
+const user = {
+  description: "Soy ingeniera en Software con preferencias hacia el desarrollo frontend.",
+  birthdate: "12 de junio de 2004",
+  languages: "Español, Inglés, Francés",
+  education: "Instituto Tecnológico de Mérida"
+};
+---
+
+<div class="card">
+  <h2>Sobre mí</h2>
+
+  <p class="desc">{user.description}</p>
+
+  <div class="item">
+    <span>🎂</span>
+    <p>{user.birthdate}</p>
+  </div>
+
+  <div class="item">
+    <span>🌐</span>
+    <p>{user.languages}</p>
+  </div>
+
+  <div class="item">
+    <span>🏫</span>
+    <p>{user.education}</p>
+  </div>
+</div>
+
+<style>
+.card {
+  background: #c65a2e;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.desc {
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+</style>

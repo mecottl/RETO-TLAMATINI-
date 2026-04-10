@@ -1,0 +1,33 @@
+---
+import "./PostCard.css"
+
+const { post } = Astro.props;
+---
+
+<div class="post">
+  <div class="left">
+    <img src={post.avatar} class="avatar" />
+
+    <div class="meta">
+      <div class="likes">❤️<br>{post.likes}</div>
+      <div class="date">📅<br>{post.date}</div>
+    </div>
+  </div>
+
+  <div class="center">
+    <h2>{post.user}</h2>
+    <p>{post.text}</p>
+  </div>
+
+  <div class="right">
+    <div class="preview">
+      <img src={post.image} />
+
+      {post.link && (
+        <a href={post.link} target="_blank" class="link">
+          {post.link}
+        </a>
+      )}
+    </div>
+  </div>
+</div>
