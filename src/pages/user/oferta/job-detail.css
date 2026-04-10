@@ -190,6 +190,37 @@
   border-color: var(--txt-muted);
 }
 
+.job-detail-actions .btn-primary.btn-applied,
+.job-detail-actions .btn-primary:disabled {
+  opacity: 0.85;
+  cursor: default;
+  filter: none;
+}
+
+.apply-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: var(--cards-primary);
+  border: 1px solid var(--border-primary);
+  box-shadow: var(--shadow-soft);
+  color: var(--txt-primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 200;
+}
+
+.apply-toast.apply-toast--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 @media (max-width: 600px) {
   .job-detail-header {
     flex-direction: column;

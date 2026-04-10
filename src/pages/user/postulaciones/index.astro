@@ -1,0 +1,64 @@
+---
+import "./postulaciones.css";
+import "../index/user.css";
+import Header from "@/components/UI/header/Header.astro";
+import UserLayout from "@/layouts/UserLayout.astro";
+import JobCard from "@/components/user/index/JobCard.astro";
+import { jobsForListing } from "@/data/jobs";
+---
+
+<UserLayout title="Postulaciones">
+  <Header />
+  <main class="index-page postulaciones-page">
+    <div class="index-shell">
+      <a href="/user/index/" class="postulaciones-back">← Volver a ofertas</a>
+
+      <section class="jobs-main">
+        <h2>Vacantes a las que te postulaste</h2>
+
+        <div id="appliedJobList" class="applied-job-list">
+          {
+            jobsForListing.map((job) => (
+              <JobCard
+                id={job.id}
+                Logo={job.Logo}
+                tag={job.tag}
+                position={job.position}
+                company={job.company}
+                time={job.time}
+                isSaved={job.isSaved}
+              />
+            ))
+          }
+        </div>
+
+        <p id="appliedEmptyState" class="applied-empty" hidden>
+          Aún no te has postulado a ninguna vacante. Explora las ofertas y pulsa «Postularme» en la que te interese.
+        </p>
+      </section>
+    </div>
+  </main>
+</UserLayout>
+
+<script>
+  import { getAppliedJobIds } from "@/lib/appliedJobs";
+
+  const ids = new Set(getAppliedJobIds());
+  const list = document.getElementById("appliedJobList");
+  const empty = document.getElementById("appliedEmptyState");
+
+  let count = 0;
+  list?.querySelectorAll(".card").forEach((card) => {
+    const id = card.getAttribute("data-job-id");
+    const show = Boolean(id && ids.has(id));
+    (card as HTMLElement).style.display = show ? "" : "none";
+    if (show) count += 1;
+  });
+
+  if (empty) {
+    empty.hidden = count > 0;
+  }
+  if (list) {
+    list.style.display = count === 0 ? "none" : "";
+  }
+</script>

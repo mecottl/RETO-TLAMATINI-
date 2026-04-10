@@ -15,7 +15,7 @@ const { id, Logo, tag, position, company, time, isSaved = false } = Astro.props;
 const detailHref = `/user/oferta/${id}/`;
 ---
 
-<div class="card">
+<div class="card" data-job-id={id}>
   <div class="logo">
     {Logo && <Logo />}
   </div>

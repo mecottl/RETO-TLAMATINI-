@@ -96,9 +96,54 @@ const pageTitle = `${job.position} — ${job.company.split("|")[0]?.trim() ?? jo
 
         <div class="job-detail-actions">
           <a href="/user/index/" class="btn-outline">Volver</a>
-          <button type="button" class="btn-primary">Postularme</button>
+          <button type="button" class="btn-primary" id="postularmeBtn" data-job-id={job.id}>
+            Postularme
+          </button>
+        </div>
+        <div id="applyToast" class="apply-toast" role="status" aria-live="polite" hidden>
+          Te postulaste
         </div>
       </article>
     </div>
   </main>
 </UserLayout>
+
+<script>
+  import { addAppliedJob, hasAppliedTo } from "@/lib/appliedJobs";
+
+  const btn = document.getElementById("postularmeBtn") as HTMLButtonElement | null;
+  const toast = document.getElementById("applyToast");
+  const jobId = btn?.dataset.jobId;
+
+  function showToast() {
+    if (!toast) return;
+    toast.hidden = false;
+    toast.classList.add("apply-toast--visible");
+    window.setTimeout(() => {
+      toast.classList.remove("apply-toast--visible");
+      window.setTimeout(() => {
+        toast.hidden = true;
+      }, 300);
+    }, 2200);
+  }
+
+  function syncAppliedState() {
+    if (!btn || !jobId) return;
+    if (hasAppliedTo(jobId)) {
+      btn.disabled = true;
+      btn.textContent = "Ya te postulaste";
+      btn.classList.add("btn-applied");
+    }
+  }
+
+  syncAppliedState();
+
+  btn?.addEventListener("click", () => {
+    if (!jobId || btn.disabled) return;
+    addAppliedJob(jobId);
+    showToast();
+    btn.disabled = true;
+    btn.textContent = "Ya te postulaste";
+    btn.classList.add("btn-applied");
+  });
+</script>
