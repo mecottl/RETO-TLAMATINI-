@@ -14,7 +14,7 @@ const { id } = Astro.params;
 const job = id ? getJobById(id) : undefined;
 
 if (!job) {
-  return Astro.redirect("/user/index");
+  return Astro.redirect("/user/index/");
 }
 
 const Logo = resolveLogo(job.logoKey);
@@ -25,7 +25,7 @@ const pageTitle = `${job.position} — ${job.company.split("|")[0]?.trim() ?? jo
   <Header />
   <main class="job-detail-page">
     <div class="job-detail-shell">
-      <a href="/user/index" class="job-detail-back">← Volver a ofertas</a>
+      <a href="/user/index/" class="job-detail-back">← Volver a ofertas</a>
 
       <article class="job-detail-card">
         <header class="job-detail-header">
@@ -95,7 +95,7 @@ const pageTitle = `${job.position} — ${job.company.split("|")[0]?.trim() ?? jo
         </section>
 
         <div class="job-detail-actions">
-          <a href="/user/index" class="btn-outline">Volver</a>
+          <a href="/user/index/" class="btn-outline">Volver</a>
           <button type="button" class="btn-primary">Postularme</button>
         </div>
       </article>

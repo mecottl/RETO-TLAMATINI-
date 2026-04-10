@@ -2,11 +2,15 @@ import jobOffersJson from "./job-offers.json";
 import IconGoogle from "@/components/UI/icons/IconGoogle.astro";
 import IconSteam from "@/components/UI/icons/IconSteam.astro";
 import IconFacebook from "@/components/UI/icons/IconFacebook.astro";
+import IconMicrosoft from "@/components/UI/icons/IconMicrosoft.astro";
+import IconAWS from "@/components/UI/icons/IconAWS.astro";
 
 const LOGO_MAP = {
   google: IconGoogle,
   steam: IconSteam,
   facebook: IconFacebook,
+  microsoft: IconMicrosoft,
+  aws: IconAWS,
 } as const;
 
 export type LogoKey = keyof typeof LOGO_MAP;

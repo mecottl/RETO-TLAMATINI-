@@ -4,6 +4,9 @@ import { fileURLToPath } from "node:url";
 
 // https://astro.build/config
 export default defineConfig({
+  // Sin barra final, servidores estáticos básicos (p. ej. python -m http.server) suelen dar 404
+  // en rutas como /user/oferta/foo (la carpeta existe como foo/index.html).
+  trailingSlash: "always",
   vite: {
     resolve: {
       alias: {

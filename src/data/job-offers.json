@@ -86,6 +86,64 @@
       "employmentType": "Tiempo completo",
       "experienceLevel": "Senior",
       "locationDetail": "Ciudad de México / remoto híbrido"
+    },
+    {
+      "id": "amazon-ingeniera-frontend-remoto",
+      "logoKey": "aws",
+      "tag": "REMOTO • $140K - $170K ANUAL",
+      "position": "Ingeniera Frontend",
+      "company": "Amazon | México",
+      "time": "Hace 1 hora",
+      "isSaved": false,
+      "summary": "Buscamos una ingeniera frontend para desarrollar interfaces escalables en plataformas de e-commerce de alto tráfico.",
+      "description": "Formarás parte del equipo de experiencia de compra de Amazon, trabajando en interfaces web optimizadas para millones de usuarias. Colaborarás con diseño, backend y producto para mejorar rendimiento y conversión.",
+      "responsibilities": [
+        "Desarrollar componentes reutilizables con React y TypeScript.",
+        "Optimizar rendimiento y tiempos de carga en aplicaciones web.",
+        "Colaborar con diseñadoras UI/UX para implementar interfaces accesibles."
+      ],
+      "requirements": [
+        "3+ años de experiencia en desarrollo frontend.",
+        "Dominio de JavaScript, React y CSS moderno.",
+        "Experiencia trabajando con APIs REST."
+      ],
+      "benefits": [
+        "Trabajo 100% remoto",
+        "Seguro de gastos médicos",
+        "Bonos por desempeño"
+      ],
+      "employmentType": "Tiempo completo",
+      "experienceLevel": "Mid",
+      "locationDetail": "Remoto (México)"
+    },
+    {
+      "id": "microsoft-ingeniera-software-hibrido-cdmx",
+      "logoKey": "microsoft",
+      "tag": "HÍBRIDO • $160K - $190K ANUAL",
+      "position": "Ingeniera de Software",
+      "company": "Microsoft | Ciudad de México",
+      "time": "Hace 2 horas",
+      "isSaved": true,
+      "summary": "Oportunidad para una ingeniera de software interesada en construir soluciones cloud escalables en Azure.",
+      "description": "Te unirás al equipo de desarrollo de servicios en la nube, participando en diseño, implementación y despliegue de soluciones en Azure. Trabajarás con equipos globales en proyectos de alto impacto.",
+      "responsibilities": [
+        "Diseñar e implementar servicios backend escalables.",
+        "Colaborar en arquitectura de sistemas distribuidos.",
+        "Escribir código limpio, probado y mantenible."
+      ],
+      "requirements": [
+        "Experiencia en C#, .NET o Java.",
+        "Conocimiento de servicios cloud (Azure, AWS o GCP).",
+        "2+ años en desarrollo de software profesional."
+      ],
+      "benefits": [
+        "Modelo híbrido flexible",
+        "Seguro de salud y vida",
+        "Capacitación continua y certificaciones"
+      ],
+      "employmentType": "Tiempo completo",
+      "experienceLevel": "Semi senior",
+      "locationDetail": "Ciudad de México (híbrido)"
     }
   ]
 }
