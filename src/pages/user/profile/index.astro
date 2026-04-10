@@ -1,0 +1,28 @@
+---
+import "./profile.css";
+
+import UserLayout from "@layouts/UserLayout.astro";
+import UserHeader from "@components/user/profile/header/UserHeader.astro";
+import CreatePostBox from "@components/user/profile/posts/CreatePostBox.astro";
+import PostList from "@components/user/profile/posts/PostList.astro";
+import AboutCard from "@components/user/profile/sidebar/AboutCard.astro";
+import SkillsCard from "@components/user/profile/sidebar/SkillsCard.astro";
+---
+
+<UserLayout title="Perfil">
+  <div class="profile-container">
+    <UserHeader />
+  </div>
+
+  <div class="profile-grid">
+    <div class="left">
+      <CreatePostBox />
+      <PostList />
+    </div>
+
+    <div class="right">
+      <AboutCard />
+      <SkillsCard />
+    </div>
+  </div>
+</UserLayout>

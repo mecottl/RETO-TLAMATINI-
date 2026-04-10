@@ -1,5 +1,5 @@
 /* UserHeader.css */
-@import "../../../styles/global.css";
+@import "../../../../styles/global.css";
 
 .header {
   background: var(--cards-primary);

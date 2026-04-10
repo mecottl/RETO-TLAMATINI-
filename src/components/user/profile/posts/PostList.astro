@@ -1,0 +1,37 @@
+---
+import PostCard from "./PostCard.astro";
+
+const posts = [
+  {
+    user: "Aurora Madera",
+    avatar: "/assets/userImage.webp",
+    text: "¡El día de hoy concluí con mi nuevo portafolio! ¡Puedes entrar en el siguiente enlace adjunto!",
+    image: "/assets/userImage.webp",
+    link: "https://www.auroramadera.com",
+    likes: 83,
+    date: "09/04/2026"
+  },
+  {
+    user: "Aurora Madera",
+    avatar: "/assets/userImage.webp",
+    text: "¡El día de hoy concluí con mi nuevo portafolio! ¡Puedes entrar en el siguiente enlace adjunto!",
+    image: "/assets/userImage.webp",
+    link: "https://www.auroramadera.com",
+    likes: 83,
+    date: "09/04/2026"
+  },
+  {
+    user: "Aurora Madera",
+    avatar: "/assets/userImage.webp",
+    text: "¡El día de hoy concluí con mi nuevo portafolio! ¡Puedes entrar en el siguiente enlace adjunto!",
+    image: "/assets/userImage.webp",
+    link: "https://www.auroramadera.com",
+    likes: 83,
+    date: "09/04/2026"
+  }
+];
+---
+
+{posts.map(post => (
+  <PostCard post={post} />
+))}
