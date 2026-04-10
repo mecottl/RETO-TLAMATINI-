@@ -1,83 +1,158 @@
 ---
 import "./user.css";
+import Header from "@/components/UI/header/Header.astro";
 import UserLayout from "@/layouts/UserLayout.astro";
+import JobCard from "@/components/user/index/JobCard.astro";
+
+import IconGoogle from "@/components/UI/icons/IconGoogle.astro";
+import IconSteam from "@/components/UI/icons/IconSteam.astro";
+import IconFacebook from "@/components/UI/icons/IconFacebook.astro";
+import IconSearch from "@/components/UI/icons/IconSearch.astro";
+import IconJS from "@/components/UI/icons/IconJS.astro";
+import IconFigma from "@/components/UI/icons/IconFigma.astro";
+import IconCode from "@/components/UI/icons/IconCode.astro";
+
+const JOB_OFFERS = [
+  {
+    Logo: IconGoogle,
+    tag: "PRESENCIAL • $100K - $120K ANUAL",
+    position: "Diseñadora UI/UX",
+    company: "Google | Mérida, Yucatán",
+    time: "Hace 2 horas",
+    isSaved: false
+  },
+  {
+    Logo: IconSteam,
+    tag: "REMOTO",
+    position: "Diseñadora UI/UX",
+    company: "Steam | Mérida, Yucatán",
+    time: "Hace 1 hora",
+    isSaved: true
+  },
+  {
+    Logo: IconFacebook,
+    tag: "REMOTO • $200K ANUAL",
+    position: "Analista de Datos",
+    company: "Facebook | Mérida, Yucatán",
+    time: "Hace 3 horas",
+    isSaved: false
+  }
+];
 ---
 
-<UserLayout>
-  <section class="search">
-    <input type="text" placeholder="Buscar..." />
-    <button class="location">Mérida, Yucatán</button>
-    <button class="buscar">Buscar</button>
-  </section>
-
-  <main class="container">
-    <section class="jobs">
-      <h2>Ofertas para ti</h2>
-
-      <div class="card">
-        <div class="logo">Google</div>
-        <div class="info">
-          <p class="tag">PRESENCIAL • $100K - $120K ANUAL</p>
-          <h3>Diseñadora UI/UX</h3>
-          <p class="company">Google | Mérida, Yucatán</p>
-          <p class="time">Hace 2 horas</p>
+<UserLayout title="Inicio">
+  <Header />
+  
+  <main class="index-page">
+    <div class="index-shell">
+      <section class="search-section">
+        <div class="search-container">
+          <input type="text" id="jobSearchInput" placeholder="Buscar cargo, empresa o tecnología..." class="search-input" />
+          <select id="locationSelect" class="btn btn-location custom-select">
+            <option value="all" selected>Todas las ubicaciones</option>
+            <option value="Yucatán">Mérida, Yucatán</option>
+            <option value="México">Ciudad de México</option>
+            <option value="Jalisco">Guadalajara, Jalisco</option>
+            <option value="Nuevo León">Monterrey, Nuevo León</option>
+          </select>
+          <button id="searchSubmitBtn" class="btn btn-search"><IconSearch size={20} /> Buscar</button>
         </div>
-        <div class="actions">
-          <button class="save">Guardar</button>
-          <button class="info-btn">Ver Información</button>
-        </div>
-      </div>
+      </section>
 
-      <div class="card">
-        <div class="logo">Steam</div>
-        <div class="info">
-          <p class="tag">REMOTO</p>
-          <h3>Diseñadora UI/UX</h3>
-          <p class="company">Steam | Mérida, Yucatán</p>
-          <p class="time">Hace 1 hora</p>
-        </div>
-        <div class="actions">
-          <button class="saved">Guardado</button>
-          <button class="info-btn">Ver Información</button>
-        </div>
-      </div>
+      <div class="index-grid">
+        <section class="jobs-main">
+          <h2>Ofertas para ti</h2>
+          
+          <div id="jobList">
+            {JOB_OFFERS.map(job => (
+              <JobCard {...job} />
+            ))}
+          </div>
+          
+          <div id="noResultsMsg" style="display: none; padding: 20px; text-align: center; color: var(--txt-muted);">
+            No se encontraron ofertas que coincidan con tu búsqueda.
+          </div>
+        </section>
 
-      <div class="card">
-        <div class="logo">Facebook</div>
-        <div class="info">
-          <p class="tag">REMOTO • $200K ANUAL</p>
-          <h3>Analista de Datos</h3>
-          <p class="company">Facebook | Mérida, Yucatán</p>
-        </div>
-        <div class="actions">
-          <button class="save">Guardar</button>
-          <button class="info-btn">Ver Información</button>
-        </div>
-      </div>
-    </section>
+        <aside class="index-sidebar">
+          <h2>Descubre</h2>
 
-    <aside class="sidebar">
-      <h2>Descubre</h2>
+          <div class="category">
+            <IconCode />
+            <h4>FULL-STACK</h4>
+            <p>100 ofertas</p>
+          </div>
 
-      <div class="category">
-        <h4>FULL-STACK</h4>
-        <p>100 ofertas</p>
-      </div>
+          <div class="category">
+            <IconFigma />
+            <h4>FIGMA</h4>
+            <p>50 ofertas</p>
+          </div>
 
-      <div class="category">
-        <h4>FIGMA</h4>
-        <p>50 ofertas</p>
-      </div>
+          <div class="category">
+            <IconJS />
+            <h4>JAVASCRIPT</h4>
+            <p>50 ofertas</p>
+          </div>
 
-      <div class="category">
-        <h4>JAVASCRIPT</h4>
-        <p>50 ofertas</p>
+          <div class="category">
+            <IconCode />
+            <h4>BACK-END</h4>
+            <p>10 ofertas</p>
+          </div>
+        </aside>
       </div>
-
-      <div class="category">
-        <h4>BACK-END</h4>
-        <p>10 ofertas</p>
-      </div>
-    </aside>
+    </div>
   </main>
 </UserLayout>
+
+<script>
+  // Lógica de búsqueda orientada a DOM (Vanilla JS)
+  const searchInput = document.getElementById('jobSearchInput');
+  const locationSelect = document.getElementById('locationSelect');
+  const searchSubmitBtn = document.getElementById('searchSubmitBtn');
+  const jobCards = document.querySelectorAll('.card');
+  const noResultsMsg = document.getElementById('noResultsMsg');
+
+  function filterJobs() {
+    if (!searchInput || !locationSelect) return;
+    
+    const query = (searchInput as HTMLInputElement).value.toLowerCase();
+    const locationValue = (locationSelect as HTMLSelectElement).value.toLowerCase();
+    const isAllLocations = locationValue === 'all';
+    
+    let visibleCount = 0;
+
+    jobCards.forEach(card => {
+      // Tomamos todo el texto de la tarjeta y lo bajamos a minúsculas
+      const textContext = (card.textContent || '').toLowerCase();
+      
+      const matchesSearch = textContext.includes(query);
+      const matchesLocation = isAllLocations || textContext.includes(locationValue);
+
+      if (matchesSearch && matchesLocation) {
+        (card as HTMLElement).style.display = ''; // Revierte a flex nativo
+        visibleCount++;
+      } else {
+        (card as HTMLElement).style.display = 'none';
+      }
+    });
+    
+    if (noResultsMsg) {
+      noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  }
+
+  // Escuchadores de eventos
+  if (searchSubmitBtn) {
+    searchSubmitBtn.addEventListener('click', filterJobs);
+  }
+  
+  if (searchInput) {
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        filterJobs();
+      }
+    });
+  }
+</script>
