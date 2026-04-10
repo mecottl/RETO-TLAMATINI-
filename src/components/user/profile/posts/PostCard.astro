@@ -1,5 +1,7 @@
 ---
 import "./PostCard.css";
+import IconCorazon from "@/components/UI/icons/IconCorazon.astro";
+import IconCalendario from "@/components/UI/icons/IconCalendario.astro";
 
 const { post } = Astro.props;
 ---
@@ -10,11 +12,11 @@ const { post } = Astro.props;
 
     <div class="post-card__meta">
       <div class="post-card__stat">
-        <span class="post-card__label">Likes</span>
+        <IconCorazon size={18} fill="currentColor" className="post-card__icon" />
         <strong>{post.likes}</strong>
       </div>
       <div class="post-card__stat">
-        <span class="post-card__label">Fecha</span>
+        <IconCalendario size={18} className="post-card__icon" />
         <strong>{post.date}</strong>
       </div>
     </div>

@@ -103,9 +103,10 @@
 .gallery {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  /* align-items: flex-start; */
   gap: 0.85rem;
   min-width: 0;
+  text-align: center;
 }
 
 .gallery p {
@@ -122,11 +123,18 @@
 }
 
 .images img {
-  width: 68px;
-  height: 68px;
+  width: 150px;
+  height: 110px;
   border-radius: 14px;
   object-fit: cover;
   display: block;
+}
+
+.images img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  box-shadow: var(--shadow-soft);
+  
 }
 
 @media (max-width: 900px) {
