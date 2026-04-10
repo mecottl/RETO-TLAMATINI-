@@ -17,7 +17,7 @@ const JOB_OFFERS = [
     Logo: IconGoogle,
     tag: "PRESENCIAL • $100K - $120K ANUAL",
     position: "Diseñadora UI/UX",
-    company: "Google | Mérida, Yucatán",
+    company: "Google | Ciudad de México",
     time: "Hace 2 horas",
     isSaved: false
   },
@@ -25,7 +25,7 @@ const JOB_OFFERS = [
     Logo: IconSteam,
     tag: "REMOTO",
     position: "Diseñadora UI/UX",
-    company: "Steam | Mérida, Yucatán",
+    company: "Steam | Estado de México",
     time: "Hace 1 hora",
     isSaved: true
   },
@@ -33,7 +33,7 @@ const JOB_OFFERS = [
     Logo: IconFacebook,
     tag: "REMOTO • $200K ANUAL",
     position: "Analista de Datos",
-    company: "Facebook | Mérida, Yucatán",
+    company: "Facebook | Ciudad de México",
     time: "Hace 3 horas",
     isSaved: false
   }
@@ -107,12 +107,13 @@ const JOB_OFFERS = [
 </UserLayout>
 
 <script>
-  // Lógica de búsqueda orientada a DOM (Vanilla JS)
   const searchInput = document.getElementById('jobSearchInput');
   const locationSelect = document.getElementById('locationSelect');
   const searchSubmitBtn = document.getElementById('searchSubmitBtn');
   const jobCards = document.querySelectorAll('.card');
   const noResultsMsg = document.getElementById('noResultsMsg');
+
+  let showOnlySaved = false;
 
   function filterJobs() {
     if (!searchInput || !locationSelect) return;
@@ -124,14 +125,23 @@ const JOB_OFFERS = [
     let visibleCount = 0;
 
     jobCards.forEach(card => {
-      // Tomamos todo el texto de la tarjeta y lo bajamos a minúsculas
       const textContext = (card.textContent || '').toLowerCase();
       
       const matchesSearch = textContext.includes(query);
       const matchesLocation = isAllLocations || textContext.includes(locationValue);
+      
+      let matchesSaved = true;
+      if (showOnlySaved) {
+        const saveBtn = card.querySelector('.save-action-btn');
+        if (saveBtn) {
+          matchesSaved = saveBtn.getAttribute('data-saved') === 'true';
+        } else {
+          matchesSaved = false;
+        }
+      }
 
-      if (matchesSearch && matchesLocation) {
-        (card as HTMLElement).style.display = ''; // Revierte a flex nativo
+      if (matchesSearch && matchesLocation && matchesSaved) {
+        (card as HTMLElement).style.display = ''; 
         visibleCount++;
       } else {
         (card as HTMLElement).style.display = 'none';
@@ -143,7 +153,38 @@ const JOB_OFFERS = [
     }
   }
 
-  // Escuchadores de eventos
+  window.addEventListener('toggleSavedFilter', (e: Event) => {
+    const customEvent = e as CustomEvent;
+    showOnlySaved = customEvent.detail.active;
+    
+    const searchSection = document.querySelector('.search-section') as HTMLElement;
+    const sidebar = document.querySelector('.index-sidebar') as HTMLElement;
+    const mainTitle = document.querySelector('.jobs-main h2') as HTMLElement;
+    const grid = document.querySelector('.index-grid') as HTMLElement;
+
+    if (showOnlySaved) {
+      if (searchSection) searchSection.style.display = 'none';
+      if (sidebar) sidebar.style.display = 'none';
+      if (mainTitle) mainTitle.textContent = 'Tus postulaciones guardadas';
+      if (grid) {
+        grid.style.gridTemplateColumns = '1fr';
+        grid.style.maxWidth = '800px';
+        grid.style.margin = '0 auto';
+      }
+    } else {
+      if (searchSection) searchSection.style.display = '';
+      if (sidebar) sidebar.style.display = '';
+      if (mainTitle) mainTitle.textContent = 'Ofertas para ti';
+      if (grid) {
+        grid.style.gridTemplateColumns = '';
+        grid.style.maxWidth = '';
+        grid.style.margin = '';
+      }
+    }
+    
+    filterJobs();
+  });
+
   if (searchSubmitBtn) {
     searchSubmitBtn.addEventListener('click', filterJobs);
   }

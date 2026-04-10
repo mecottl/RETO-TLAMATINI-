@@ -1,13 +1,140 @@
 ---
 import "./Header.css";
+import IconSave from "@/components/UI/icons/IconSave.astro";
+import IconJob from "@/components/UI/icons/IconJob.astro";
+import IconNotification from "@/components/UI/icons/IconNotification.astro";
+
+const user = {
+  name: "Aurora Madera",
+  avatar: "/assets/userImage.webp"
+};
 ---
 
 <header class="topbar">
-  <h1>TLAMATINI</h1>
-  <div class="menu">
-    <span>Guardado</span>
-    <span>Postulaciones</span>
-    <span>Notificaciones</span>
-    <span class="user">Hola Aurora Madera</span>
+  <div class="header-logo">
+    <a href="/user/index">
+      <h1>TLAMATINI</h1>
+    </a>
   </div>
+  
+  <nav class="menu">
+    <a href="#" class="menu-item" aria-label="Guardado" id="headerSavedBtn">
+      <IconSave size={20} />
+      <span>Guardado</span>
+    </a>
+    <a href="#" class="menu-item" aria-label="Postulaciones">
+      <IconJob size={20} />
+      <span>Postulaciones</span>
+    </a>
+    <div class="user-dropdown-container notif-container">
+      <button class="menu-item btn-notif" id="notifMenuBtn" aria-expanded="false" aria-haspopup="true">
+        <IconNotification size={20} />
+        <span>Notificaciones</span>
+      </button>
+      
+      <div class="dropdown-menu notif-menu" id="notifDropdown" role="menu">
+        <div class="notif-header">Mensajes</div>
+        <a href="#" class="dropdown-item notif-item">
+          <span><strong>Google</strong> vio tu solicitud</span>
+          <small>Hace 2 horas</small>
+        </a>
+        <a href="#" class="dropdown-item notif-item">
+          <span><strong>Facebook</strong> publicó una oferta nueva</span>
+          <small>Hace 5 horas</small>
+        </a>
+      </div>
+    </div>
+    
+    <div class="user-dropdown-container">
+      <button class="user-profile-btn" id="userMenuBtn" aria-expanded="false" aria-haspopup="true">
+        <img src={user.avatar} alt={`Foto de perfil de ${user.name}`} class="user-avatar" />
+        <span class="user-name">Hola {user.name}</span>
+      </button>
+      
+      <div class="dropdown-menu" id="userDropdown" role="menu">
+        <a href="/user/profile" class="dropdown-item" role="menuitem">Editar cuenta</a>
+        <button class="dropdown-item text-danger" role="menuitem">Cerrar sesión</button>
+      </div>
+    </div>
+  </nav>
 </header>
+
+<script>
+  const userMenuBtn = document.getElementById('userMenuBtn');
+  const userDropdown = document.getElementById('userDropdown');
+  
+  const notifMenuBtn = document.getElementById('notifMenuBtn');
+  const notifDropdown = document.getElementById('notifDropdown');
+
+  const headerSavedBtn = document.getElementById('headerSavedBtn');
+
+  if (userMenuBtn && userDropdown) {
+    userMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      
+      if (notifDropdown && notifDropdown.classList.contains('show')) {
+        notifMenuBtn?.setAttribute('aria-expanded', 'false');
+        notifDropdown.classList.remove('show');
+      }
+
+      const isExpanded = userMenuBtn.getAttribute('aria-expanded') === 'true';
+      userMenuBtn.setAttribute('aria-expanded', String(!isExpanded));
+      userDropdown.classList.toggle('show');
+    });
+  }
+
+  if (notifMenuBtn && notifDropdown) {
+    notifMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      
+      if (userDropdown && userDropdown.classList.contains('show')) {
+        userMenuBtn?.setAttribute('aria-expanded', 'false');
+        userDropdown.classList.remove('show');
+      }
+
+      const isExpanded = notifMenuBtn.getAttribute('aria-expanded') === 'true';
+      notifMenuBtn.setAttribute('aria-expanded', String(!isExpanded));
+      notifDropdown.classList.toggle('show');
+    });
+  }
+
+  if (headerSavedBtn) {
+    headerSavedBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      headerSavedBtn.classList.toggle('active');
+      
+      const event = new CustomEvent('toggleSavedFilter', { 
+        detail: { active: headerSavedBtn.classList.contains('active') } 
+      });
+      window.dispatchEvent(event);
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    const target = e.target as Node;
+    if (userMenuBtn && userDropdown && !userMenuBtn.contains(target) && !userDropdown.contains(target)) {
+      userMenuBtn.setAttribute('aria-expanded', 'false');
+      userDropdown.classList.remove('show');
+    }
+    
+    if (notifMenuBtn && notifDropdown && !notifMenuBtn.contains(target) && !notifDropdown.contains(target)) {
+      notifMenuBtn.setAttribute('aria-expanded', 'false');
+      notifDropdown.classList.remove('show');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (userDropdown?.classList.contains('show')) {
+        userMenuBtn?.setAttribute('aria-expanded', 'false');
+        userDropdown.classList.remove('show');
+        userMenuBtn?.focus();
+      }
+      if (notifDropdown?.classList.contains('show')) {
+        notifMenuBtn?.setAttribute('aria-expanded', 'false');
+        notifDropdown.classList.remove('show');
+        notifMenuBtn?.focus();
+      }
+    }
+  });
+</script>
