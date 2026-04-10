@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    background: var(--bg-primary);
+}
+
+.menu span {
+    margin-left: 20px;
+    cursor: pointer;
+}
+.search {
+    display: flex;
+    padding: 15px 30px;
+    gap: 10px;
+}
+
+.search input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+}
+
+.search button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.location {
+    background: var(--button-primary);
+    color: var(--txt-primary);
+}
+
+.buscar {
+    background: var(--txt-secundary);
+    color: var(--txt-primary);
+}
+
+/* LAYOUT */
+.container {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+.jobs {
+    flex: 2;
+}
+
+.jobs h2 {
+    color: var(--txt-secundary);
+}
+
+.card {
+    background: #eee;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 100px;
+    font-weight: bold;
+}
+
+.info {
+    flex: 1;
+}
+
+.tag {
+    font-size: var(--fontSize-details);
+    color: var(--txt-secundary);
+}
+
+.company {
+    color: var(--txt-secundary);
+    font-size: var(--fontSize-details);
+}
+
+.time {
+    font-size: var(--fontSize-details);
+    color: gray;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.save {
+    background: transparent;
+    border: 2px solid var(--txt-secundary);
+    color: var(--txt-secundary);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.saved {
+    background: var(--txt-secundary);
+    color: var(--txt-primary);
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.info-btn {
+    background: var(--button-primary);
+    color: var(--txt-primary);
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+}
+.sidebar {
+    flex: 1;
+    background: var(--cards-primary);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.sidebar h2 {
+    color: var(--txt-primary);
+}
+
+.category {
+    background: var(--button-primary);
+    color: var(--txt-primary);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}

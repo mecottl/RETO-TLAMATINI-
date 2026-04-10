@@ -1,0 +1,83 @@
+---
+import "./user.css";
+import UserLayout from "@/layouts/UserLayout.astro";
+---
+
+<UserLayout>
+  <section class="search">
+    <input type="text" placeholder="Buscar..." />
+    <button class="location">Mérida, Yucatán</button>
+    <button class="buscar">Buscar</button>
+  </section>
+
+  <main class="container">
+    <section class="jobs">
+      <h2>Ofertas para ti</h2>
+
+      <div class="card">
+        <div class="logo">Google</div>
+        <div class="info">
+          <p class="tag">PRESENCIAL • $100K - $120K ANUAL</p>
+          <h3>Diseñadora UI/UX</h3>
+          <p class="company">Google | Mérida, Yucatán</p>
+          <p class="time">Hace 2 horas</p>
+        </div>
+        <div class="actions">
+          <button class="save">Guardar</button>
+          <button class="info-btn">Ver Información</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="logo">Steam</div>
+        <div class="info">
+          <p class="tag">REMOTO</p>
+          <h3>Diseñadora UI/UX</h3>
+          <p class="company">Steam | Mérida, Yucatán</p>
+          <p class="time">Hace 1 hora</p>
+        </div>
+        <div class="actions">
+          <button class="saved">Guardado</button>
+          <button class="info-btn">Ver Información</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="logo">Facebook</div>
+        <div class="info">
+          <p class="tag">REMOTO • $200K ANUAL</p>
+          <h3>Analista de Datos</h3>
+          <p class="company">Facebook | Mérida, Yucatán</p>
+        </div>
+        <div class="actions">
+          <button class="save">Guardar</button>
+          <button class="info-btn">Ver Información</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <h2>Descubre</h2>
+
+      <div class="category">
+        <h4>FULL-STACK</h4>
+        <p>100 ofertas</p>
+      </div>
+
+      <div class="category">
+        <h4>FIGMA</h4>
+        <p>50 ofertas</p>
+      </div>
+
+      <div class="category">
+        <h4>JAVASCRIPT</h4>
+        <p>50 ofertas</p>
+      </div>
+
+      <div class="category">
+        <h4>BACK-END</h4>
+        <p>10 ofertas</p>
+      </div>
+    </aside>
+  </main>
+</UserLayout>
