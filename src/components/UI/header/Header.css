@@ -12,6 +12,13 @@
     z-index: 100;
 }
 
+.talent {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--txt-muted);
+    margin-left: .4rem;
+}
+
 .header-logo a {
     display: flex;
     align-items: center;
@@ -19,14 +26,14 @@
 }
 
 .header-logo img {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
 }
 
 .header-logo p {
     padding-top: 45px;
     display: inline-block;
-    font-size: 32px;
+    font-size: 28px;
 }
 
 .menu {
